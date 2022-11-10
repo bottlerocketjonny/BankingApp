@@ -3,6 +3,7 @@ package com.bankingapp.userinterface;
 import com.bankingapp.authentication.Authenticator;
 import com.bankingapp.domains.Account;
 import com.bankingapp.domains.Customer;
+import com.bankingapp.exceptions.AmountException;
 import com.bankingapp.repositories.DataSource;
 
 import javax.security.auth.login.LoginException;
@@ -21,7 +22,7 @@ public class Menu {
         Customer customer = menu.authenticateUser();
 
         if(customer != null) {
-            Account account = DataSource.getAccounts(customer.getAccountId());
+            Account account = DataSource.getAccount(customer.getAccountId());
             menu.showMenu(customer, account);
         }
 
@@ -65,12 +66,22 @@ public class Menu {
                 case 1:
                     System.out.println("How much would you like to deposit?");
                     amount = scanner.nextDouble();
-                    account.deposit(amount);
+                    try{
+                        account.deposit(amount);
+                    }catch(AmountException e){
+                        System.out.println(e.getMessage());
+                        System.out.println("Please try again.");
+                    }
                     break;
                 case 2:
                     System.out.println("How much would you like to withdraw?");
                     amount = scanner.nextDouble();
-                    account.withdraw(amount);
+                    try{
+                        account.withdraw(amount);
+                    }catch(AmountException e){
+                        System.out.println(e.getMessage());
+                        System.out.println("Please try again.");
+                    }
                     break;
                 case 3:
                     System.out.println("Current balance: " + account.getBalance());
