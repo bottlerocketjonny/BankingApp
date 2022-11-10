@@ -1,37 +1,37 @@
 package com.bankingapp.domains;
 
 public class Account {
-    private Long accountId;
-    private String accountType;
-    private Double accountBalance;
+    private int id;
+    private String type;
+    private Double balance;
 
-    public Account(Long accountId, String accountType, Double accountBalance) {
-        this.accountId = accountId;
-        this.accountType = accountType;
-        this.accountBalance = accountBalance;
+    public Account(int id, String type, Double balance) {
+        this.id = id;
+        this.type = type;
+        this.balance = balance;
     }
 
-    public Long getAccountId() {
-        return accountId;
+    public int getId() {
+        return id;
     }
 
-    public void setAccountId(Long accountId) {
-        this.accountId = accountId;
+    public void setId(int id) {
+        this.id = id;
     }
 
-    public String getAccountType() {
-        return accountType;
+    public String getType() {
+        return type;
     }
 
-    public void setAccountType(String accountType) {
-        this.accountType = accountType;
+    public void setType(String type) {
+        this.type = type;
     }
 
-    public Double getAccountBalance() {
-        return accountBalance;
+    public Double getBalance() {
+        return balance;
     }
 
-    public void setAccountBalance(Double accountBalance) {
-        this.accountBalance = accountBalance;
+    public void setBalance(Double balance) {
+        this.balance = balance;
     }
 }
