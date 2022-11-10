@@ -1,22 +1,22 @@
 package com.bankingapp.domains;
 
 public class Account {
-    private int id;
+    private int accountId;
     private String type;
     private Double balance;
 
-    public Account(int id, String type, Double balance) {
-        this.id = id;
+    public Account(int accountId, String type, Double balance) {
+        this.accountId = accountId;
         this.type = type;
         this.balance = balance;
     }
 
-    public int getId() {
-        return id;
+    public int getAccountId() {
+        return accountId;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setAccountId(int accountId) {
+        this.accountId = accountId;
     }
 
     public String getType() {
